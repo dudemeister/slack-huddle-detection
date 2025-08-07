@@ -2,6 +2,8 @@
 
 A macOS utility that detects when you're in a Slack huddle (voice/video call) by monitoring system audio state and power assertions.
 
+To the Slack team if you are reading this: Please make this easier to detect m'kay?
+
 ## Features
 
 - 🎯 **Accurate Detection**: Monitors multiple system indicators to reliably detect huddle start and end
