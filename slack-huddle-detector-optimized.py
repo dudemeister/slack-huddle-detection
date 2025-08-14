@@ -4,6 +4,7 @@ import subprocess
 import time
 import sys
 import os
+import json
 from datetime import datetime
 from collections import deque
 import re
@@ -14,6 +15,11 @@ class OptimizedSlackHuddleDetector:
         self.in_huddle = False
         self.score_history = deque(maxlen=10)
         self.huddle_peak_score = 0
+        import getpass
+        import os
+        # Get the real user even when running with sudo
+        username = os.environ.get('SUDO_USER') or getpass.getuser()
+        self.status_file_path = f"/tmp/huddle-status-{username}.json"
         
     def run_command_safe(self, cmd, timeout=1):
         """Run command with timeout and error handling"""
@@ -137,6 +143,35 @@ class OptimizedSlackHuddleDetector:
         
         return should_start, should_end, trend
     
+    def write_status_file(self, current_score, state, trend):
+        """Write current status to JSON file for menubar app"""
+        try:
+            trend_str = "↑" if trend > 5 else "↓" if trend < -5 else "→"
+            
+            status_data = {
+                "inHuddle": self.in_huddle,
+                "score": current_score,
+                "baseline": self.baseline_score,
+                "peakScore": self.huddle_peak_score if self.in_huddle else 0,
+                "trend": trend_str,
+                "timestamp": datetime.now().strftime('%H:%M:%S'),
+                "metrics": {
+                    "slackAssertions": state['slack_assertions'],
+                    "audioUnits": state['audio_units'],
+                    "audioFds": state['audio_fds'],
+                    "powerAssertions": state['power_assertions']
+                }
+            }
+            
+            with open(self.status_file_path, 'w') as f:
+                json.dump(status_data, f, indent=2)
+            
+            # Fix permissions so the user can read the file
+            os.chmod(self.status_file_path, 0o644)
+            
+        except Exception as e:
+            pass  # Don't let file writing errors break the detector
+    
     def calibrate(self):
         """Establish baseline"""
         print("📊 Calibrating baseline (NOT in huddle)...")
@@ -213,6 +248,9 @@ class OptimizedSlackHuddleDetector:
                 # Update peak score during huddle
                 if self.in_huddle and score > self.huddle_peak_score:
                     self.huddle_peak_score = score
+                
+                # Write status file for menubar app
+                self.write_status_file(score, state, trend)
                 
                 # Status line
                 if self.in_huddle:

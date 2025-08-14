@@ -11,6 +11,7 @@ To the Slack team if you are reading this: Please make this easier to detect m'k
 - 📊 **Smart End Detection**: Three methods to ensure huddle end is properly detected
 - 🚀 **Real-time Monitoring**: Updates every 3 seconds with current status
 - 📈 **Dynamic Thresholds**: Adjusts detection based on peak scores and trends
+- 📱 **MenuBar Integration**: Optional native macOS menubar app for visual status indicator
 
 ## Requirements
 
@@ -18,6 +19,7 @@ To the Slack team if you are reading this: Please make this easier to detect m'k
 - Python 3.6+
 - Slack desktop app
 - sudo access (for audio system monitoring)
+- Swift 5.9+ (for menubar app)
 
 ## Installation
 
@@ -31,17 +33,36 @@ cd slack-huddle-detection
 
 ## Usage
 
+### Option 1: Python Detector Only
+
 Run the detector with sudo privileges:
 
 ```bash
 sudo python3 slack-huddle-detector-optimized.py
 ```
 
+### Option 2: Python Detector + MenuBar App (Recommended)
+
+For a visual indicator in your macOS menubar:
+
+1. **Build and start the menubar app:**
+   ```bash
+   cd HuddleIndicator
+   swift build -c release
+   ./.build/release/HuddleIndicator &
+   ```
+
+2. **Start the Python detector:**
+   ```bash
+   sudo python3 slack-huddle-detector-optimized.py
+   ```
+
 The detector will:
 1. Request sudo access (needed for audio system monitoring)
 2. Calibrate baseline (takes 6 seconds)
 3. Begin monitoring for huddles
 4. Display real-time status with indicators
+5. Update menubar icon automatically
 
 ### Output Example
 
@@ -109,6 +130,7 @@ The detector monitors several macOS system indicators:
 
 ## Status Indicators
 
+### Command Line Display
 - 🎙️ **IN HUDDLE**: Currently in a Slack huddle
 - 💤 **No huddle**: Not in a huddle
 - ↑↓→ **Trend arrows**: Score movement direction
@@ -117,6 +139,12 @@ The detector monitors several macOS system indicators:
 - **FD**: File descriptor count
 - **Peak**: Highest score during current huddle
 - **Base**: Current baseline score
+
+### MenuBar App
+- **⚪️** (white circle): Not in huddle - visible on dark menubar
+- **🎙️** (microphone): Currently in a Slack huddle
+- **❌** (red X): Python detector not running
+- **Click icon**: Shows detailed popup with metrics and connection status
 
 ## Troubleshooting
 
@@ -148,13 +176,15 @@ The detector uses macOS system frameworks to monitor audio state:
 
 No network traffic monitoring or process memory inspection is performed.
 
-## Other Scripts in Repository
+## Repository Structure
 
-- `slack-huddle-detector-optimized.py` - The main working detector (recommended)
-- `slack-huddle-analyzer.py` - Network connection analyzer for debugging
-- `slack-huddle-iokit-fixed.py` - IOKit-based detector (alternative)
-- `slack-huddle-simple.py` - Simple network-based detector
-- Various debug and analysis tools
+- `slack-huddle-detector-optimized.py` - Main Python detector (recommended)
+- `HuddleIndicator/` - Swift menubar app for visual status indicator
+- `failed attempts/` - Various experimental approaches and debug tools
+  - `slack-huddle-analyzer.py` - Network connection analyzer
+  - `slack-huddle-iokit-fixed.py` - IOKit-based detector (alternative)
+  - `slack-huddle-simple.py` - Simple network-based detector
+  - Various other debug and analysis tools
 
 ## License
 
