@@ -1,0 +1,12 @@
+{
+  "": {
+    "dependencies": "/Users/jelveh/Projects/slack-huddle-detection/HuddleIndicator/.build/arm64-apple-macosx/release/HuddleIndicator.build/HuddleIndicator.d",
+    "object": "/Users/jelveh/Projects/slack-huddle-detection/HuddleIndicator/.build/arm64-apple-macosx/release/HuddleIndicator.build/HuddleIndicator.o",
+    "swift-dependencies": "/Users/jelveh/Projects/slack-huddle-detection/HuddleIndicator/.build/arm64-apple-macosx/release/HuddleIndicator.build/master.swiftdeps"
+  },
+  "/Users/jelveh/Projects/slack-huddle-detection/HuddleIndicator/Sources/HuddleIndicator/main.swift": {
+    "object": "/Users/jelveh/Projects/slack-huddle-detection/HuddleIndicator/.build/arm64-apple-macosx/release/HuddleIndicator.build/main.swift.o",
+    "swiftmodule": "/Users/jelveh/Projects/slack-huddle-detection/HuddleIndicator/.build/arm64-apple-macosx/release/HuddleIndicator.build/main~partial.swiftmodule",
+    "swift-dependencies": "/Users/jelveh/Projects/slack-huddle-detection/HuddleIndicator/.build/arm64-apple-macosx/release/HuddleIndicator.build/main.swiftdeps"
+  }
+}

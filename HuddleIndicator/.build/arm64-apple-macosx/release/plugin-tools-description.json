@@ -1,0 +1,232 @@
+{
+  "builtTestProducts" : [
+
+  ],
+  "copyCommands" : {
+
+  },
+  "explicitTargetDependencyImportCheckingMode" : {
+    "none" : {
+
+    }
+  },
+  "generatedSourceTargetSet" : [
+
+  ],
+  "pluginDescriptions" : [
+
+  ],
+  "swiftCommands" : {
+    "C.HuddleIndicator-arm64-apple-macosx15.0-release.module" : {
+      "executable" : "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/swiftc",
+      "fileList" : "/Users/jelveh/Projects/slack-huddle-detection/HuddleIndicator/.build/arm64-apple-macosx/release/HuddleIndicator.build/sources",
+      "importPath" : "/Users/jelveh/Projects/slack-huddle-detection/HuddleIndicator/.build/arm64-apple-macosx/release/Modules",
+      "inputs" : [
+        {
+          "kind" : "file",
+          "name" : "/Users/jelveh/Projects/slack-huddle-detection/HuddleIndicator/Sources/HuddleIndicator/main.swift"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/jelveh/Projects/slack-huddle-detection/HuddleIndicator/.build/arm64-apple-macosx/release/swift-version--58304C5D6DBC2206.txt"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/jelveh/Projects/slack-huddle-detection/HuddleIndicator/.build/arm64-apple-macosx/release/HuddleIndicator.build/sources"
+        }
+      ],
+      "isLibrary" : false,
+      "moduleName" : "HuddleIndicator",
+      "moduleOutputPath" : "/Users/jelveh/Projects/slack-huddle-detection/HuddleIndicator/.build/arm64-apple-macosx/release/Modules/HuddleIndicator.swiftmodule",
+      "objects" : [
+        "/Users/jelveh/Projects/slack-huddle-detection/HuddleIndicator/.build/arm64-apple-macosx/release/HuddleIndicator.build/main.swift.o"
+      ],
+      "otherArguments" : [
+        "-target",
+        "arm64-apple-macosx14.0",
+        "-O",
+        "-j16",
+        "-DSWIFT_PACKAGE",
+        "-module-cache-path",
+        "/Users/jelveh/Projects/slack-huddle-detection/HuddleIndicator/.build/arm64-apple-macosx/release/ModuleCache",
+        "-parseable-output",
+        "-Xfrontend",
+        "-entry-point-function-name",
+        "-Xfrontend",
+        "HuddleIndicator_main",
+        "-parse-as-library",
+        "-swift-version",
+        "5",
+        "-sdk",
+        "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX15.4.sdk",
+        "-F",
+        "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/Library/Frameworks",
+        "-F",
+        "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/Library/PrivateFrameworks",
+        "-I",
+        "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/usr/lib",
+        "-L",
+        "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/usr/lib",
+        "-g",
+        "-Xcc",
+        "-isysroot",
+        "-Xcc",
+        "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX15.4.sdk",
+        "-Xcc",
+        "-F",
+        "-Xcc",
+        "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/Library/Frameworks",
+        "-Xcc",
+        "-F",
+        "-Xcc",
+        "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/Library/PrivateFrameworks",
+        "-Xcc",
+        "-fPIC",
+        "-Xcc",
+        "-g",
+        "-package-name",
+        "huddleindicator"
+      ],
+      "outputFileMapPath" : "/Users/jelveh/Projects/slack-huddle-detection/HuddleIndicator/.build/arm64-apple-macosx/release/HuddleIndicator.build/output-file-map.json",
+      "outputs" : [
+        {
+          "kind" : "file",
+          "name" : "/Users/jelveh/Projects/slack-huddle-detection/HuddleIndicator/.build/arm64-apple-macosx/release/HuddleIndicator.build/main.swift.o"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/jelveh/Projects/slack-huddle-detection/HuddleIndicator/.build/arm64-apple-macosx/release/Modules/HuddleIndicator.swiftmodule"
+        }
+      ],
+      "prepareForIndexing" : false,
+      "sources" : [
+        "/Users/jelveh/Projects/slack-huddle-detection/HuddleIndicator/Sources/HuddleIndicator/main.swift"
+      ],
+      "tempsPath" : "/Users/jelveh/Projects/slack-huddle-detection/HuddleIndicator/.build/arm64-apple-macosx/release/HuddleIndicator.build",
+      "wholeModuleOptimization" : true
+    }
+  },
+  "swiftFrontendCommands" : {
+
+  },
+  "swiftTargetScanArgs" : {
+    "HuddleIndicator" : [
+      "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/swiftc",
+      "-module-name",
+      "HuddleIndicator",
+      "-package-name",
+      "huddleindicator",
+      "-whole-module-optimization",
+      "-num-threads",
+      "16",
+      "-c",
+      "/Users/jelveh/Projects/slack-huddle-detection/HuddleIndicator/Sources/HuddleIndicator/main.swift",
+      "-I",
+      "/Users/jelveh/Projects/slack-huddle-detection/HuddleIndicator/.build/arm64-apple-macosx/release/Modules",
+      "-target",
+      "arm64-apple-macosx14.0",
+      "-O",
+      "-j16",
+      "-DSWIFT_PACKAGE",
+      "-module-cache-path",
+      "/Users/jelveh/Projects/slack-huddle-detection/HuddleIndicator/.build/arm64-apple-macosx/release/ModuleCache",
+      "-parseable-output",
+      "-Xfrontend",
+      "-entry-point-function-name",
+      "-Xfrontend",
+      "HuddleIndicator_main",
+      "-parse-as-library",
+      "-swift-version",
+      "5",
+      "-sdk",
+      "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX15.4.sdk",
+      "-F",
+      "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/Library/Frameworks",
+      "-F",
+      "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/Library/PrivateFrameworks",
+      "-I",
+      "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/usr/lib",
+      "-L",
+      "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/usr/lib",
+      "-g",
+      "-Xcc",
+      "-isysroot",
+      "-Xcc",
+      "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX15.4.sdk",
+      "-Xcc",
+      "-F",
+      "-Xcc",
+      "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/Library/Frameworks",
+      "-Xcc",
+      "-F",
+      "-Xcc",
+      "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/Library/PrivateFrameworks",
+      "-Xcc",
+      "-fPIC",
+      "-Xcc",
+      "-g",
+      "-package-name",
+      "huddleindicator",
+      "-driver-use-frontend-path",
+      "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/swiftc"
+    ]
+  },
+  "targetDependencyMap" : {
+    "HuddleIndicator" : [
+
+    ]
+  },
+  "testDiscoveryCommands" : {
+
+  },
+  "testEntryPointCommands" : {
+
+  },
+  "traitConfiguration" : {
+    "enableAllTraits" : false
+  },
+  "writeCommands" : {
+    "/Users/jelveh/Projects/slack-huddle-detection/HuddleIndicator/.build/arm64-apple-macosx/release/HuddleIndicator.build/sources" : {
+      "alwaysOutOfDate" : false,
+      "inputs" : [
+        {
+          "kind" : "virtual",
+          "name" : "<sources-file-list>"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/jelveh/Projects/slack-huddle-detection/HuddleIndicator/Sources/HuddleIndicator/main.swift"
+        }
+      ],
+      "outputFilePath" : "/Users/jelveh/Projects/slack-huddle-detection/HuddleIndicator/.build/arm64-apple-macosx/release/HuddleIndicator.build/sources"
+    },
+    "/Users/jelveh/Projects/slack-huddle-detection/HuddleIndicator/.build/arm64-apple-macosx/release/HuddleIndicator.product/Objects.LinkFileList" : {
+      "alwaysOutOfDate" : false,
+      "inputs" : [
+        {
+          "kind" : "virtual",
+          "name" : "<link-file-list>"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/jelveh/Projects/slack-huddle-detection/HuddleIndicator/.build/arm64-apple-macosx/release/HuddleIndicator.build/main.swift.o"
+        }
+      ],
+      "outputFilePath" : "/Users/jelveh/Projects/slack-huddle-detection/HuddleIndicator/.build/arm64-apple-macosx/release/HuddleIndicator.product/Objects.LinkFileList"
+    },
+    "/Users/jelveh/Projects/slack-huddle-detection/HuddleIndicator/.build/arm64-apple-macosx/release/swift-version--58304C5D6DBC2206.txt" : {
+      "alwaysOutOfDate" : true,
+      "inputs" : [
+        {
+          "kind" : "virtual",
+          "name" : "<swift-get-version>"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/swiftc"
+        }
+      ],
+      "outputFilePath" : "/Users/jelveh/Projects/slack-huddle-detection/HuddleIndicator/.build/arm64-apple-macosx/release/swift-version--58304C5D6DBC2206.txt"
+    }
+  }
+}

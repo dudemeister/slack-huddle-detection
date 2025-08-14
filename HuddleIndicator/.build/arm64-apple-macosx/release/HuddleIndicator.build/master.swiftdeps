@@ -1,0 +1,6 @@
+version: "Apple Swift version 6.1 (swiftlang-6.1.0.110.21 clang-1700.0.13.3)"
+options: "7aff39f08acca22e1a44353a301450ea2f22c33f5742df7a23f88626ccc24621"
+build_start_time: [1755145769, 261172000]
+build_end_time: [1755145769, 836822000]
+inputs:
+  "/Users/jelveh/Projects/slack-huddle-detection/HuddleIndicator/Sources/HuddleIndicator/main.swift": [1755145764, 882296923]

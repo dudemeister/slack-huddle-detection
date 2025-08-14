@@ -1,0 +1,66 @@
+client:
+  name: basic
+  file-system: device-agnostic
+tools: {}
+targets:
+  "HuddleIndicator-arm64-apple-macosx15.0-release.exe": ["<HuddleIndicator-arm64-apple-macosx15.0-release.exe>"]
+  "HuddleIndicator-arm64-apple-macosx15.0-release.module": ["<HuddleIndicator-arm64-apple-macosx15.0-release.module>"]
+  "PackageStructure": ["<PackageStructure>"]
+  "main": ["<HuddleIndicator-arm64-apple-macosx15.0-release.exe>","<HuddleIndicator-arm64-apple-macosx15.0-release.module>"]
+  "test": ["<HuddleIndicator-arm64-apple-macosx15.0-release.exe>","<HuddleIndicator-arm64-apple-macosx15.0-release.module>"]
+default: "main"
+nodes:
+  "/Users/jelveh/Projects/slack-huddle-detection/HuddleIndicator/Sources/":
+    is-directory-structure: true
+    content-exclusion-patterns: [".git",".build"]
+commands:
+  "/Users/jelveh/Projects/slack-huddle-detection/HuddleIndicator/.build/arm64-apple-macosx/release/HuddleIndicator.build/sources":
+    tool: write-auxiliary-file
+    inputs: ["<sources-file-list>","/Users/jelveh/Projects/slack-huddle-detection/HuddleIndicator/Sources/HuddleIndicator/main.swift"]
+    outputs: ["/Users/jelveh/Projects/slack-huddle-detection/HuddleIndicator/.build/arm64-apple-macosx/release/HuddleIndicator.build/sources"]
+    description: "Write auxiliary file /Users/jelveh/Projects/slack-huddle-detection/HuddleIndicator/.build/arm64-apple-macosx/release/HuddleIndicator.build/sources"
+
+  "/Users/jelveh/Projects/slack-huddle-detection/HuddleIndicator/.build/arm64-apple-macosx/release/HuddleIndicator.product/Objects.LinkFileList":
+    tool: write-auxiliary-file
+    inputs: ["<link-file-list>","/Users/jelveh/Projects/slack-huddle-detection/HuddleIndicator/.build/arm64-apple-macosx/release/HuddleIndicator.build/main.swift.o"]
+    outputs: ["/Users/jelveh/Projects/slack-huddle-detection/HuddleIndicator/.build/arm64-apple-macosx/release/HuddleIndicator.product/Objects.LinkFileList"]
+    description: "Write auxiliary file /Users/jelveh/Projects/slack-huddle-detection/HuddleIndicator/.build/arm64-apple-macosx/release/HuddleIndicator.product/Objects.LinkFileList"
+
+  "/Users/jelveh/Projects/slack-huddle-detection/HuddleIndicator/.build/arm64-apple-macosx/release/swift-version--58304C5D6DBC2206.txt":
+    tool: write-auxiliary-file
+    inputs: ["<swift-get-version>","/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/swiftc"]
+    outputs: ["/Users/jelveh/Projects/slack-huddle-detection/HuddleIndicator/.build/arm64-apple-macosx/release/swift-version--58304C5D6DBC2206.txt"]
+    always-out-of-date: "true"
+    description: "Write auxiliary file /Users/jelveh/Projects/slack-huddle-detection/HuddleIndicator/.build/arm64-apple-macosx/release/swift-version--58304C5D6DBC2206.txt"
+
+  "<HuddleIndicator-arm64-apple-macosx15.0-release.exe>":
+    tool: phony
+    inputs: ["/Users/jelveh/Projects/slack-huddle-detection/HuddleIndicator/.build/arm64-apple-macosx/release/HuddleIndicator"]
+    outputs: ["<HuddleIndicator-arm64-apple-macosx15.0-release.exe>"]
+
+  "<HuddleIndicator-arm64-apple-macosx15.0-release.module>":
+    tool: phony
+    inputs: ["/Users/jelveh/Projects/slack-huddle-detection/HuddleIndicator/.build/arm64-apple-macosx/release/HuddleIndicator.build/main.swift.o","/Users/jelveh/Projects/slack-huddle-detection/HuddleIndicator/.build/arm64-apple-macosx/release/Modules/HuddleIndicator.swiftmodule"]
+    outputs: ["<HuddleIndicator-arm64-apple-macosx15.0-release.module>"]
+
+  "C.HuddleIndicator-arm64-apple-macosx15.0-release.exe":
+    tool: shell
+    inputs: ["/Users/jelveh/Projects/slack-huddle-detection/HuddleIndicator/.build/arm64-apple-macosx/release/HuddleIndicator.build/main.swift.o","/Users/jelveh/Projects/slack-huddle-detection/HuddleIndicator/.build/arm64-apple-macosx/release/HuddleIndicator.product/Objects.LinkFileList"]
+    outputs: ["/Users/jelveh/Projects/slack-huddle-detection/HuddleIndicator/.build/arm64-apple-macosx/release/HuddleIndicator"]
+    description: "Linking ./.build/arm64-apple-macosx/release/HuddleIndicator"
+    args: ["/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/swiftc","-L","/Users/jelveh/Projects/slack-huddle-detection/HuddleIndicator/.build/arm64-apple-macosx/release","-o","/Users/jelveh/Projects/slack-huddle-detection/HuddleIndicator/.build/arm64-apple-macosx/release/HuddleIndicator","-module-name","HuddleIndicator","-Xlinker","-no_warn_duplicate_libraries","-emit-executable","-Xlinker","-dead_strip","-Xlinker","-alias","-Xlinker","_HuddleIndicator_main","-Xlinker","_main","-Xlinker","-rpath","-Xlinker","@loader_path","@/Users/jelveh/Projects/slack-huddle-detection/HuddleIndicator/.build/arm64-apple-macosx/release/HuddleIndicator.product/Objects.LinkFileList","-target","arm64-apple-macosx14.0","-sdk","/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX15.4.sdk","-F","/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/Library/Frameworks","-F","/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/Library/PrivateFrameworks","-I","/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/usr/lib","-L","/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/usr/lib","-g"]
+
+  "C.HuddleIndicator-arm64-apple-macosx15.0-release.module":
+    tool: shell
+    inputs: ["/Users/jelveh/Projects/slack-huddle-detection/HuddleIndicator/Sources/HuddleIndicator/main.swift","/Users/jelveh/Projects/slack-huddle-detection/HuddleIndicator/.build/arm64-apple-macosx/release/swift-version--58304C5D6DBC2206.txt","/Users/jelveh/Projects/slack-huddle-detection/HuddleIndicator/.build/arm64-apple-macosx/release/HuddleIndicator.build/sources"]
+    outputs: ["/Users/jelveh/Projects/slack-huddle-detection/HuddleIndicator/.build/arm64-apple-macosx/release/HuddleIndicator.build/main.swift.o","/Users/jelveh/Projects/slack-huddle-detection/HuddleIndicator/.build/arm64-apple-macosx/release/Modules/HuddleIndicator.swiftmodule"]
+    description: "Compiling Swift Module 'HuddleIndicator' (1 sources)"
+    args: ["/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/swiftc","-module-name","HuddleIndicator","-emit-dependencies","-emit-module","-emit-module-path","/Users/jelveh/Projects/slack-huddle-detection/HuddleIndicator/.build/arm64-apple-macosx/release/Modules/HuddleIndicator.swiftmodule","-output-file-map","/Users/jelveh/Projects/slack-huddle-detection/HuddleIndicator/.build/arm64-apple-macosx/release/HuddleIndicator.build/output-file-map.json","-whole-module-optimization","-num-threads","16","-c","@/Users/jelveh/Projects/slack-huddle-detection/HuddleIndicator/.build/arm64-apple-macosx/release/HuddleIndicator.build/sources","-I","/Users/jelveh/Projects/slack-huddle-detection/HuddleIndicator/.build/arm64-apple-macosx/release/Modules","-target","arm64-apple-macosx14.0","-O","-j16","-DSWIFT_PACKAGE","-module-cache-path","/Users/jelveh/Projects/slack-huddle-detection/HuddleIndicator/.build/arm64-apple-macosx/release/ModuleCache","-parseable-output","-Xfrontend","-entry-point-function-name","-Xfrontend","HuddleIndicator_main","-parse-as-library","-swift-version","5","-sdk","/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX15.4.sdk","-F","/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/Library/Frameworks","-F","/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/Library/PrivateFrameworks","-I","/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/usr/lib","-L","/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/usr/lib","-g","-Xcc","-isysroot","-Xcc","/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX15.4.sdk","-Xcc","-F","-Xcc","/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/Library/Frameworks","-Xcc","-F","-Xcc","/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/Library/PrivateFrameworks","-Xcc","-fPIC","-Xcc","-g","-package-name","huddleindicator"]
+
+  "PackageStructure":
+    tool: package-structure-tool
+    inputs: ["/Users/jelveh/Projects/slack-huddle-detection/HuddleIndicator/Sources/","/Users/jelveh/Projects/slack-huddle-detection/HuddleIndicator/Package.swift","/Users/jelveh/Projects/slack-huddle-detection/HuddleIndicator/Package.resolved"]
+    outputs: ["<PackageStructure>"]
+    description: "Planning build"
+    allow-missing-inputs: true
+
